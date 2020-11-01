@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="内部类与异常类一、内部类内部类：一个类中声明另一个类 外嵌类：包含内部类的类 a、内部类的，外嵌类成员变量，在内部内中仍然有效； b、在内部类中的方法，可以调用外嵌类中的方法； c、内部类类体中不可以声明类变量和类方法； 1234567public class RedCowForm &amp;#123;	RedCow cow;	class RedCow&amp;#123;		&#x2F;&#x2F;static RedCow co;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="codelitchi&#39;s blog">
+<meta property="og:url" content="http://www.codelitchi.com/2020/11/01/%E5%86%85%E9%83%A8%E7%B1%BB%E4%B8%8E%E5%BC%82%E5%B8%B8%E7%B1%BB/index.html">
+<meta property="og:site_name" content="codelitchi&#39;s blog">
+<meta property="og:description" content="内部类与异常类一、内部类内部类：一个类中声明另一个类 外嵌类：包含内部类的类 a、内部类的，外嵌类成员变量，在内部内中仍然有效； b、在内部类中的方法，可以调用外嵌类中的方法； c、内部类类体中不可以声明类变量和类方法； 1234567public class RedCowForm &amp;#123;	RedCow cow;	class RedCow&amp;#123;		&#x2F;&#x2F;static RedCow co;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-01T08:05:42.788Z">
+<meta property="article:modified_time" content="2020-10-26T03:05:15.995Z">
+<meta property="article:author" content="codelitchi">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.codelitchi.com/2020/11/01/内部类与异常类/"/>
+
+
+
+
+
+  <title> | codelitchi's blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">codelitchi's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.codelitchi.com/2020/11/01/%E5%86%85%E9%83%A8%E7%B1%BB%E4%B8%8E%E5%BC%82%E5%B8%B8%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codelitchi's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-01T16:05:42+08:00">
+                2020-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="内部类与异常类"><a href="#内部类与异常类" class="headerlink" title="内部类与异常类"></a>内部类与异常类</h1><h2 id="一、内部类"><a href="#一、内部类" class="headerlink" title="一、内部类"></a>一、内部类</h2><p>内部类：一个类中声明另一个类</p>
+<p>外嵌类：包含内部类的类</p>
+<p>a、内部类的，外嵌类成员变量，在内部内中仍然有效；</p>
+<p>b、在内部类中的方法，可以调用外嵌类中的方法；</p>
+<p>c、内部类类体中不可以声明类变量和类方法；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedCowForm</span> </span>&#123;</span><br><span class="line">	RedCow cow;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">RedCow</span></span>&#123;</span><br><span class="line">		<span class="comment">//static RedCow co;    x</span></span><br><span class="line">		<span class="comment">//static void sound() &#123;&#125;  x</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>d、在外嵌类类体中，可以用内部类声明对象，作为外嵌类的成员；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedCowForm</span> </span>&#123;</span><br><span class="line">	RedCow cow;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">RedCow</span></span>&#123;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>e、内部类仅供它的外嵌类使用，其他类不能用内部类声明对象；</p>
+<p>🐖：带有内部类的字节码文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">外嵌类类名$内部类类名.class</span><br></pre></td></tr></table></figure>
+
+<p>​    <strong>内部类可以被static修饰，非内部类不可以被static修饰，类是一种数据类型，那么内部类就是外部类的一种静态数据类型；</strong></p>
+<p>​    <em>被static修饰的内部类就可以被其他类用来创建对象；</em></p>
+<p>​    <strong>static内部类不能操作外嵌类中的实例成员变量；</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedCowFarm</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> String farmName;</span><br><span class="line">	RedCow cow;  <span class="comment">//在外嵌类类体中，可以用内部类声明对象，作为外嵌类的成员</span></span><br><span class="line">	<span class="comment">//无参构造函数</span></span><br><span class="line">	RedCowFarm()&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//构造函数</span></span><br><span class="line">	RedCowFarm(String s)&#123;</span><br><span class="line">		cow = <span class="keyword">new</span> RedCow(<span class="number">150</span>,<span class="number">112</span>,<span class="number">5000</span>);</span><br><span class="line">		farmName=s;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showCowMess</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		cow.speak();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//内部类RedCow</span></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">RedCow</span></span>&#123;</span><br><span class="line">		String cowName=<span class="string">&quot;红牛&quot;</span>;</span><br><span class="line">		<span class="keyword">int</span> height,weight,price;</span><br><span class="line">		RedCow(<span class="keyword">int</span> h,<span class="keyword">int</span> w,<span class="keyword">int</span> p)&#123;</span><br><span class="line">			height=h;</span><br><span class="line">			weight=w;</span><br><span class="line">			price=p;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">speak</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="comment">//内部类的外嵌类成员依然有效farmName</span></span><br><span class="line">			System.out.println(<span class="string">&quot;我是&quot;</span>+cowName+<span class="string">&quot;,身高:&quot;</span>+height+<span class="string">&quot;cm体重:&quot;</span>+weight+<span class="string">&quot;kg,生活在&quot;</span>+farmName);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		RedCowFarm farm = <span class="keyword">new</span> RedCowFarm(<span class="string">&quot;红牛牧场&quot;</span>);</span><br><span class="line">		farm.showCowMess();</span><br><span class="line">		farm.cow.speak();<span class="comment">//调用内部类函数</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="二、匿名类"><a href="#二、匿名类" class="headerlink" title="二、匿名类"></a>二、匿名类</h2><p>a、和类有关的匿名类</p>
+<p>匿名类是一个子类；</p>
+<p>匿名类是一个内部类；</p>
+<p>不能用匿名类声明对象，可以用匿名类创建对象；</p>
+<p>匿名类可以继承父类的方法，也可以重写父类的方法；</p>
+<p>匿名类可以访问外嵌类成员变量和方法；</p>
+<p>匿名类类体不能声明static成员变量和static方法———<strong>此处和内部类一样</strong></p>
+<p>为什么有匿名类？</p>
+<p>没有显式的声明一个类的对象，又想用子类创建一个对象；</p>
+<p>b、和接口有关的匿名类</p>
+<p>java允许直接使用接口名和一个类体创建一个匿名类对象——默认是实现了该接口去掉类声明的类体；</p>
+<p>例：Computable是一个接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new Computable()&#123;</span><br><span class="line">	实现接口的匿名类的类体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>方法的参数可以是接口类型：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(Computable x)</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>可以使用接口名和类体创建一个匿名对象传递给方法的参数–类体重写接口中的<strong>所有方法</strong>；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(new Computable()</span></span>&#123;</span><br><span class="line">    实现接口匿名类的类体</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="三、异常类"><a href="#三、异常类" class="headerlink" title="三、异常类"></a>三、异常类</h2><p>异常：程序运行时产生的错误；</p>
+<p>java异常出现在方法调用过程中，出现异常抛出异常对象产生异常，并等待处理；</p>
+<h3 id="1、try-catch语句"><a href="#1、try-catch语句" class="headerlink" title="1、try-catch语句"></a>1、try-catch语句</h3><p>try部分——产生异常部分；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">	<span class="comment">//产生异常的程序</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>catch部分—处理异常；</p>
+<p>当try部分出现异常，try内立即停止执行，转向catch处理异常部分；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">catch</span>（ExceptionSubClass）&#123;</span><br><span class="line">	<span class="comment">//处理异常代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(ExceptionSubClass1)&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(ExceptionSubClass2)&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>catch异常类中的异常类，都是Exception的子类，子类之间不能有父字关系，有的话保留一个父类catch就行；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">hello</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=<span class="number">0</span>,m=<span class="number">0</span>,t=<span class="number">666</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">           m=Integer.parseInt(<span class="string">&quot;8888&quot;</span>);</span><br><span class="line">           n=Integer.parseInt(<span class="string">&quot;ad888&quot;</span>);<span class="comment">//发生异常，直接跳转catch捕获异常</span></span><br><span class="line">           t=<span class="number">999</span>;<span class="comment">//来不及执行</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (NumberFormatException e)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;发生异常：&quot;</span>+e.getMessage());</span><br><span class="line">            n=<span class="number">123</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;n=&quot;</span>+n+<span class="string">&quot;,m=&quot;</span>+m+<span class="string">&quot;,t=&quot;</span>+t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、自定义异常类"><a href="#2、自定义异常类" class="headerlink" title="2、自定义异常类"></a>2、自定义异常类</h3><p>扩展Exception类，定义自己的异常类；</p>
+<p>一个方法在声明时，可以使用throws关键字声明要产生的若干个异常，并在该方法的方法体中具体给出产生异常的操作；</p>
+<p>扩展Exception类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;</span><br><span class="line">    String message;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">IntegerException</span><span class="params">(<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">        message=<span class="string">&quot;年龄&quot;</span>+m+<span class="string">&quot;不合理&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> message;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用throws关键字声明要产生的若干个异常</p>
+<p>使用  throw抛出异常，终止程序，跳转到异常处理</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">People</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age=<span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> <span class="keyword">throws</span> IntegerException</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(age&gt;<span class="number">160</span>||age&lt;=<span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IntegerException(age);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;年龄&quot;</span>+age+<span class="string">&quot;合理&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">hello</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        People wang =<span class="keyword">new</span> People(),</span><br><span class="line">                zhang =<span class="keyword">new</span> People();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            wang.setAge(<span class="number">180</span>);</span><br><span class="line">            System.out.println(wang.getAge());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (IntegerException e) &#123;</span><br><span class="line">            System.out.println(e.toString());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            zhang.setAge(<span class="number">37</span>);</span><br><span class="line">            System.out.println(zhang.getAge());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (IntegerException e)&#123;</span><br><span class="line">            System.out.println(e.toString());</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、finally语句"><a href="#四、finally语句" class="headerlink" title="四、finally语句"></a>四、finally语句</h2><p>带finally的try-catch语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;&#125;</span><br><span class="line"><span class="keyword">catch</span>(ExceptionSubClass)&#123;&#125;</span><br><span class="line"><span class="keyword">finally</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>🐖：try-catch执行完执行finally语句；</p>
+<p>​        finally最后一定会执行；</p>
+<p>🐖：try-catch语句中<strong>执行return语句，finally语句也会被执行</strong>；</p>
+<p>​        执行程序退出语句，finally语句不会被执行，当然程序退出语句接下来的语句也不会被执行；</p>
+<blockquote>
+<p>有一种情况，就是客车出发前，检查人数，有异常处理异常，但无论发不发生异常，客车都将出发</p>
+</blockquote>
+<p>自定义异常类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DangerException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;</span><br><span class="line">    <span class="keyword">final</span> String message=<span class="string">&quot;超员&quot;</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">warnMess</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> message;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Bus类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bus</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> realPeople;</span><br><span class="line">    <span class="keyword">int</span> maxPeople;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMaxPeople</span><span class="params">(<span class="keyword">int</span> maxPeople)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.maxPeople = maxPeople;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loading</span><span class="params">(<span class="keyword">int</span> m)</span> <span class="keyword">throws</span> DangerException</span>&#123;</span><br><span class="line">        realPeople+=m;</span><br><span class="line">        <span class="keyword">if</span>(realPeople&gt;maxPeople)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> DangerException();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;目前乘客一共：&quot;</span>+realPeople+<span class="string">&quot;人&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>finally：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Bus b =<span class="keyword">new</span> Bus();</span><br><span class="line">        b.setMaxPeople(<span class="number">55</span>);</span><br><span class="line">        <span class="keyword">int</span> m = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(m&lt;<span class="number">1000</span>) &#123;</span><br><span class="line">                b.loading(m);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(DangerException e)&#123;</span><br><span class="line">            System.out.println(e.warnMess());</span><br><span class="line">            System.out.println(<span class="string">&quot;无法再拉乘客&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">finally</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Bus出发&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="五、断言语句"><a href="#五、断言语句" class="headerlink" title="五、断言语句"></a>五、断言语句</h2><p>断言语句主要用于调试代码；</p>
+<h3 id="1、断言语句格式"><a href="#1、断言语句格式" class="headerlink" title="1、断言语句格式"></a>1、断言语句格式</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assert</span> booleanExpression;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assert</span> booleanExpression:messageException;</span><br><span class="line"></span><br><span class="line">例：</span><br><span class="line">    <span class="keyword">assert</span> number&gt;<span class="number">0</span>:<span class="string">&quot;负数不能计算平方根&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、断言语句详解"><a href="#2、断言语句详解" class="headerlink" title="2、断言语句详解"></a>2、断言语句详解</h3><p>a、断言语句的booleanExpression的值必须是boolean类型；messageException可以是值为字符串的表达式；</p>
+<p>b、</p>
+<table>
+<thead>
+<tr>
+<th>assert booleanExpression;</th>
+<th>assert booleanExpression:messageException;</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>值为true，从断言语句处，继续执行</td>
+<td>值为true，从断言语句处，继续执行</td>
+</tr>
+<tr>
+<td>值为false，从断言语句处停止执行</td>
+<td>值为false，从断言语句处停止执行，并输出messageException的值，提示用户</td>
+</tr>
+</tbody></table>
+<p>c、当使用java解释器直接运行程序，默认关闭断言语句；</p>
+<p>调试程序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -ea mainclass.java</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">E:\code\src\day2&gt;java -ea Assert.java</span><br><span class="line">please input a number!</span><br><span class="line">-<span class="number">4</span></span><br><span class="line">Exception in thread <span class="string">&quot;main&quot;</span> java.lang.AssertionError: -number not be sqrt</span><br><span class="line">        at day2.Assert.main(Assert.java:<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//没有断言语句情况：</span></span><br><span class="line">E:\code\src\day2&gt;java -ea Assert.java</span><br><span class="line">please input a number!</span><br><span class="line">-<span class="number">4</span></span><br><span class="line">-<span class="number">4</span>is sqrt=NaN</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/11/01/makefile%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/11/01/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%B1%BB%E4%B8%8E%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">内部类与异常类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB"><span class="nav-number">1.1.</span> <span class="nav-text">一、内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%8C%BF%E5%90%8D%E7%B1%BB"><span class="nav-number">1.2.</span> <span class="nav-text">二、匿名类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="nav-number">1.3.</span> <span class="nav-text">三、异常类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81try-catch%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.3.1.</span> <span class="nav-text">1、try-catch语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="nav-number">1.3.2.</span> <span class="nav-text">2、自定义异常类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81finally%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.4.</span> <span class="nav-text">四、finally语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%96%AD%E8%A8%80%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.5.</span> <span class="nav-text">五、断言语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E6%96%AD%E8%A8%80%E8%AF%AD%E5%8F%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.5.1.</span> <span class="nav-text">1、断言语句格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E6%96%AD%E8%A8%80%E8%AF%AD%E5%8F%A5%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.5.2.</span> <span class="nav-text">2、断言语句详解</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">codelitchi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

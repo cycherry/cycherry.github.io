@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="运算符、表达式、语句一、运算符与表达式1、算术运算符二目运算符，操作元是整型或者浮点型    运算符 结合方式，优先级    + 从左到右，4   - 从左到右，4   * 从左到右，3   &#x2F; 从左到右，3   % 从左到右，3   2、关系运算符二目运算符 结果返回boolean型，true、false；    运算符 结合方式，优先级    &gt; 从左到右，6   &lt; 从左到右，6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="codelitchi&#39;s blog">
+<meta property="og:url" content="http://www.codelitchi.com/2020/11/01/%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%81%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%81%E8%AF%AD%E5%8F%A5/index.html">
+<meta property="og:site_name" content="codelitchi&#39;s blog">
+<meta property="og:description" content="运算符、表达式、语句一、运算符与表达式1、算术运算符二目运算符，操作元是整型或者浮点型    运算符 结合方式，优先级    + 从左到右，4   - 从左到右，4   * 从左到右，3   &#x2F; 从左到右，3   % 从左到右，3   2、关系运算符二目运算符 结果返回boolean型，true、false；    运算符 结合方式，优先级    &gt; 从左到右，6   &lt; 从左到右，6">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-01T08:05:42.796Z">
+<meta property="article:modified_time" content="2020-10-21T14:38:16.492Z">
+<meta property="article:author" content="codelitchi">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.codelitchi.com/2020/11/01/运算符、表达式、语句/"/>
+
+
+
+
+
+  <title> | codelitchi's blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">codelitchi's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.codelitchi.com/2020/11/01/%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%81%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%81%E8%AF%AD%E5%8F%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codelitchi's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-01T16:05:42+08:00">
+                2020-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="运算符、表达式、语句"><a href="#运算符、表达式、语句" class="headerlink" title="运算符、表达式、语句"></a>运算符、表达式、语句</h1><h2 id="一、运算符与表达式"><a href="#一、运算符与表达式" class="headerlink" title="一、运算符与表达式"></a>一、运算符与表达式</h2><h3 id="1、算术运算符"><a href="#1、算术运算符" class="headerlink" title="1、算术运算符"></a>1、算术运算符</h3><p>二目运算符，操作元是整型或者浮点型</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>结合方式，优先级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>从左到右，4</td>
+</tr>
+<tr>
+<td>-</td>
+<td>从左到右，4</td>
+</tr>
+<tr>
+<td>*</td>
+<td>从左到右，3</td>
+</tr>
+<tr>
+<td>/</td>
+<td>从左到右，3</td>
+</tr>
+<tr>
+<td>%</td>
+<td>从左到右，3</td>
+</tr>
+</tbody></table>
+<h3 id="2、关系运算符"><a href="#2、关系运算符" class="headerlink" title="2、关系运算符"></a>2、关系运算符</h3><p>二目运算符</p>
+<p>结果返回boolean型，true、false；</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>结合方式，优先级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&gt;</td>
+<td>从左到右，6</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>从左到右，6</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>从左到右，6</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>从左到右，6</td>
+</tr>
+<tr>
+<td>==</td>
+<td>从左到右，7</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>从左到右，7</td>
+</tr>
+</tbody></table>
+<h3 id="3、逻辑运算符"><a href="#3、逻辑运算符" class="headerlink" title="3、逻辑运算符"></a>3、逻辑运算符</h3><p>二目运算符</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>结合方式，优先级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;&amp;</td>
+<td>从左到右，11</td>
+</tr>
+<tr>
+<td>||</td>
+<td>从左到右，12</td>
+</tr>
+<tr>
+<td>！</td>
+<td>从右到左，2</td>
+</tr>
+</tbody></table>
+<p>🐖：逻辑或，当左第一个为真，不会进行第二个判断</p>
+<h3 id="4、赋值运算符"><a href="#4、赋值运算符" class="headerlink" title="4、赋值运算符"></a>4、赋值运算符</h3><p>二目运算符</p>
+<p>🐖：左边的操作元必须是变量，不能是常量或者表达式</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>结合方式，优先级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>=</td>
+<td>从右到左，14</td>
+</tr>
+</tbody></table>
+<h3 id="5、位运算符"><a href="#5、位运算符" class="headerlink" title="5、位运算符"></a>5、位运算符</h3><table>
+<thead>
+<tr>
+<th>&amp;</th>
+<th>按位与，都是真为1，有假就是0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>|</td>
+<td>按位或，有真为1，都是假为0</td>
+</tr>
+<tr>
+<td>^</td>
+<td>对应位相同为0，否则为1</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">00000000</span> <span class="number">00000000</span> <span class="number">00000000</span> <span class="number">00000111</span><span class="comment">//(int)7</span></span><br><span class="line">    </span><br><span class="line"><span class="number">11111111</span> <span class="number">11111111</span> <span class="number">11111111</span> <span class="number">11111000</span><span class="comment">//(int)-8补码</span></span><br><span class="line">    </span><br><span class="line">a:<span class="number">00000000</span> <span class="number">00000000</span> <span class="number">00000000</span> <span class="number">00000111</span></span><br><span class="line">b:<span class="number">10000001</span> <span class="number">10100101</span> <span class="number">11110011</span> <span class="number">10101011</span></span><br><span class="line">&amp;</span><br><span class="line"> :<span class="number">00000000</span> <span class="number">00000000</span> <span class="number">00000000</span> <span class="number">00000011</span></span><br></pre></td></tr></table></figure>
+
+<p>🐖：原码：第一位为符号位，0为正数，1为负数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[+<span class="number">1</span>]原 = <span class="number">0000</span> <span class="number">0001</span></span><br><span class="line"></span><br><span class="line">[-<span class="number">1</span>]原 = <span class="number">1000</span> <span class="number">0001</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>   反码：正数的反码为本身；**负数反码：符号位不变，其他取反；**</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[+<span class="number">1</span>] = [<span class="number">00000001</span>]原 = [<span class="number">00000001</span>]反</span><br><span class="line"></span><br><span class="line">[-<span class="number">1</span>] = [<span class="number">10000001</span>]原 = [<span class="number">11111110</span>]反</span><br></pre></td></tr></table></figure>
+
+<p>​        补码：正数的补码为本身；<strong>负数补码：反码的基础上+1</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[+<span class="number">1</span>] = [<span class="number">00000001</span>]原 = [<span class="number">00000001</span>]反 = [<span class="number">00000001</span>]补</span><br><span class="line"></span><br><span class="line">[-<span class="number">1</span>] = [<span class="number">10000001</span>]原 = [<span class="number">11111110</span>]反 = [<span class="number">11111111</span>]补</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="6、instanceof运算符"><a href="#6、instanceof运算符" class="headerlink" title="6、instanceof运算符"></a>6、instanceof运算符</h3><p>二目运算符，左边是一个对象，右边是一个类。当左边对象是右边的类或者子类创建的对象时，结果为true，否则为false</p>
+<p>7、自增、自减运算符</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x初始值为<span class="number">5</span></span><br><span class="line">y=++x;<span class="comment">//y=6</span></span><br><span class="line">y=x++;<span class="comment">//y=5</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="8、算数混合运算的精度"><a href="#8、算数混合运算的精度" class="headerlink" title="8、算数混合运算的精度"></a>8、算数混合运算的精度</h3><table>
+<thead>
+<tr>
+<th>如果表达式中有双精度浮点数，按双精度进行运算</th>
+<th>5.0/2+10=12.5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>如果表达式中最高精度是单精度浮点数，按单精度进行运算</td>
+<td>5.0F/2+10=12.5F</td>
+</tr>
+<tr>
+<td>如果表达式中最高精度是long型整数，按long类型进行运算</td>
+<td>12L+1000+’a’=209L</td>
+</tr>
+<tr>
+<td>如果表达式中最高精度低于int型整数，按int类型进行运算</td>
+<td>(byte)10+’a’=107</td>
+</tr>
+</tbody></table>
+<h2 id="二、条件分支语句"><a href="#二、条件分支语句" class="headerlink" title="二、条件分支语句"></a>二、条件分支语句</h2><h3 id="1、if语句"><a href="#1、if语句" class="headerlink" title="1、if语句"></a>1、if语句</h3><h3 id="2、if-else语句"><a href="#2、if-else语句" class="headerlink" title="2、if else语句"></a>2、if else语句</h3><h3 id="3、if-else-if-else语句"><a href="#3、if-else-if-else语句" class="headerlink" title="3、if else   if else语句"></a>3、if else   if else语句</h3><p>🐖：表达式语句必须时boolean类型</p>
+<h3 id="4、switch语句"><a href="#4、switch语句" class="headerlink" title="4、switch语句"></a>4、switch语句</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>（表达式）</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">case</span> 常量值<span class="number">1</span>：</span><br><span class="line">        若干语句</span><br><span class="line">        <span class="keyword">break</span>；</span><br><span class="line">    <span class="keyword">case</span> 常量值<span class="number">2</span>：</span><br><span class="line">        若干语句</span><br><span class="line">        <span class="keyword">break</span>；</span><br><span class="line">    <span class="keyword">default</span>：</span><br><span class="line">        若干语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>🐖：表达式中必须是：byte、short、int、char或者枚举类型</p>
+<p>​        没有break会一直向下运行。</p>
+<h2 id="三、循环语句"><a href="#三、循环语句" class="headerlink" title="三、循环语句"></a>三、循环语句</h2><h3 id="1、for循环"><a href="#1、for循环" class="headerlink" title="1、for循环"></a>1、for循环</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(表达式<span class="number">1</span>;表达式<span class="number">2</span>;表达式<span class="number">3</span>)</span><br><span class="line">&#123;</span><br><span class="line">	若干语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>🐖：执行顺序：表达式1–表达式2–若干语句—表达式3</p>
+<p>​        表达式2必须是boolean类型的表达式</p>
+<h3 id="2、while循环"><a href="#2、while循环" class="headerlink" title="2、while循环"></a>2、while循环</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(表达式)&#123;</span><br><span class="line">    若干语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>🐖：执行顺序：表达式判断–循环体–表达式判断</p>
+<h3 id="3、do…while语句"><a href="#3、do…while语句" class="headerlink" title="3、do…while语句"></a>3、do…while语句</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">	若干语句</span><br><span class="line">&#125;<span class="keyword">while</span>(表达式)</span><br></pre></td></tr></table></figure>
+
+<p>🐖：和while的区别就是会先执行一次</p>
+<h3 id="4、break和continue语句"><a href="#4、break和continue语句" class="headerlink" title="4、break和continue语句"></a>4、break和continue语句</h3><p>break:遇到之后跳出循环</p>
+<p>continue：跳过该条语句执行之后的循环，不跳出循环</p>
+<h3 id="5、数组与for循环"><a href="#5、数组与for循环" class="headerlink" title="5、数组与for循环"></a>5、数组与for循环</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">for_and_array</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] a= &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;a.length;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(a[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">&quot;------------&quot;</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> x:a)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(x);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>🐖：输出语句中相比较于传统替代为临时容器</p>
+<p>​        <strong>for(声明循环变量：数组名字)，其中声明循环变量不可以使用之前声明过的变量。</strong></p>
+<p>6、枚举类型与for、switch语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">enum_for_switch</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">enum</span> <span class="title">Season</span></span>&#123;</span><br><span class="line">		spring,summer,autumn,winter</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		Season s;</span><br><span class="line">		<span class="keyword">for</span>(Season a:Season.values())</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(a);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(Season b:Season.values()) <span class="comment">//枚举类型取值，或者直接Season.summer</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">switch</span>(b) </span><br><span class="line">			&#123;</span><br><span class="line">			<span class="keyword">case</span> autumn:</span><br><span class="line">				System.out.println(<span class="string">&quot;autumn&quot;</span>);</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> winter:</span><br><span class="line">				System.out.println(<span class="string">&quot;winter&quot;</span>);</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> summer:</span><br><span class="line">				System.out.println(<span class="string">&quot;summer&quot;</span>);</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">default</span>:</span><br><span class="line">				System.out.println(<span class="string">&quot;spring&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/11/01/%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%8E%A5%E5%8F%A3/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%81%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%81%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.</span> <span class="nav-text">运算符、表达式、语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">一、运算符与表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、算术运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、关系运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.1.3.</span> <span class="nav-text">3、逻辑运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.1.4.</span> <span class="nav-text">4、赋值运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.1.5.</span> <span class="nav-text">5、位运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81instanceof%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.1.6.</span> <span class="nav-text">6、instanceof运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%E3%80%81%E7%AE%97%E6%95%B0%E6%B7%B7%E5%90%88%E8%BF%90%E7%AE%97%E7%9A%84%E7%B2%BE%E5%BA%A6"><span class="nav-number">1.1.7.</span> <span class="nav-text">8、算数混合运算的精度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%9D%A1%E4%BB%B6%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.2.</span> <span class="nav-text">二、条件分支语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81if%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、if语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81if-else%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、if else语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81if-else-if-else%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.2.3.</span> <span class="nav-text">3、if else   if else语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81switch%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.2.4.</span> <span class="nav-text">4、switch语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.3.</span> <span class="nav-text">三、循环语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81for%E5%BE%AA%E7%8E%AF"><span class="nav-number">1.3.1.</span> <span class="nav-text">1、for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81while%E5%BE%AA%E7%8E%AF"><span class="nav-number">1.3.2.</span> <span class="nav-text">2、while循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81do%E2%80%A6while%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.3.3.</span> <span class="nav-text">3、do…while语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81break%E5%92%8Ccontinue%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.3.4.</span> <span class="nav-text">4、break和continue语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E6%95%B0%E7%BB%84%E4%B8%8Efor%E5%BE%AA%E7%8E%AF"><span class="nav-number">1.3.5.</span> <span class="nav-text">5、数组与for循环</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">codelitchi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
