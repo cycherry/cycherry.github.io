@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="en">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="类与对象一、面向对象语言的特性封装性、继承性、多态性 二、类1、概述类是Java程序的基本要素； 类封装一类对象的状态和方法； 类是用来定义对象的模板； 类的实现，包括类的声明和类体； 2、类的声明格式： 123class 类名&amp;#123;    类体&amp;#125;  🐖：类名要符合标识符规范；应遵守每个单词首字母大写风格。 3、类体类体有两部分组成，变量声明——刻画属性 、方法的定义——刻画功能">
+<meta name="description" content="一、面向对象语言的特性封装性、继承性、多态性 二、类1、概述类是Java程序的基本要素； 类封装一类对象的状态和方法； 类是用来定义对象的模板； 类的实现，包括类的声明和类体； 2、类的声明格式： 123class 类名&amp;#123;    类体&amp;#125;  🐖：类名要符合标识符规范；应遵守每个单词首字母大写风格。 3、类体类体有两部分组成，变量声明——刻画属性 、方法的定义——刻画功能 4、成">
 <meta property="og:type" content="article">
-<meta property="og:title" content="codelitchi&#39;s blog">
+<meta property="og:title" content="类与对象">
 <meta property="og:url" content="http://www.codelitchi.com/2020/11/01/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="codelitchi&#39;s blog">
-<meta property="og:description" content="类与对象一、面向对象语言的特性封装性、继承性、多态性 二、类1、概述类是Java程序的基本要素； 类封装一类对象的状态和方法； 类是用来定义对象的模板； 类的实现，包括类的声明和类体； 2、类的声明格式： 123class 类名&amp;#123;    类体&amp;#125;  🐖：类名要符合标识符规范；应遵守每个单词首字母大写风格。 3、类体类体有两部分组成，变量声明——刻画属性 、方法的定义——刻画功能">
-<meta property="og:locale" content="en_US">
+<meta property="og:description" content="一、面向对象语言的特性封装性、继承性、多态性 二、类1、概述类是Java程序的基本要素； 类封装一类对象的状态和方法； 类是用来定义对象的模板； 类的实现，包括类的声明和类体； 2、类的声明格式： 123class 类名&amp;#123;    类体&amp;#125;  🐖：类名要符合标识符规范；应遵守每个单词首字母大写风格。 3、类体类体有两部分组成，变量声明——刻画属性 、方法的定义——刻画功能 4、成">
+<meta property="og:locale">
 <meta property="article:published_time" content="2020-11-01T08:05:42.793Z">
-<meta property="article:modified_time" content="2020-10-23T08:25:06.189Z">
+<meta property="article:modified_time" content="2020-11-01T13:59:41.853Z">
 <meta property="article:author" content="codelitchi">
 <meta name="twitter:card" content="summary">
 
@@ -105,7 +105,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -125,7 +125,7 @@
 
 
 
-  <title> | codelitchi's blog</title>
+  <title>类与对象 | codelitchi's blog</title>
   
 
 
@@ -137,7 +137,7 @@
 
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -160,7 +160,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <h1 class="site-subtitle" itemprop="description"></h1>
       
   </div>
 
@@ -181,59 +181,93 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/%20" rel="section">
+          <a href="/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
           </a>
         </li>
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/%20" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            About
+            关于
           </a>
         </li>
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/%20" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/%20" rel="section">
+          <a href="/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            分类
           </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -257,7 +291,7 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -279,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h2 class="post-title" itemprop="name headline">类与对象</h2>
         
 
         <div class="post-meta">
@@ -289,9 +323,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-01T16:05:42+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-11-01T16:05:42+08:00">
                 2020-11-01
               </time>
             
@@ -302,6 +336,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -310,6 +366,11 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
 
           
@@ -329,7 +390,7 @@
       
 
       
-        <h1 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h1><h2 id="一、面向对象语言的特性"><a href="#一、面向对象语言的特性" class="headerlink" title="一、面向对象语言的特性"></a>一、面向对象语言的特性</h2><p>封装性、继承性、多态性</p>
+        <h2 id="一、面向对象语言的特性"><a href="#一、面向对象语言的特性" class="headerlink" title="一、面向对象语言的特性"></a>一、面向对象语言的特性</h2><p>封装性、继承性、多态性</p>
 <h2 id="二、类"><a href="#二、类" class="headerlink" title="二、类"></a>二、类</h2><h3 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h3><p>类是Java程序的基本要素；</p>
 <p>类封装一类对象的状态和方法；</p>
 <p>类是用来定义对象的模板；</p>
@@ -728,8 +789,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/11/01/%E6%9E%9A%E4%B8%BE%E7%B1%BB/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2020/11/01/%E6%9E%9A%E4%B8%BE%E7%B1%BB/" rel="next" title="枚举类与注解">
+                <i class="fa fa-chevron-left"></i> 枚举类与注解
               </a>
             
           </div>
@@ -738,8 +799,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/11/01/%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%8E%A5%E5%8F%A3/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/11/01/%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%8E%A5%E5%8F%A3/" rel="prev" title="继承与接口">
+                继承与接口 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -794,10 +855,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            站点概览
           </li>
         </ul>
       
@@ -805,6 +866,10 @@
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="" />
             
               <p class="site-author-name" itemprop="name"></p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -815,14 +880,23 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/%20%7C%7C%20archive">
+                <a href="/archives/%7C%7Carchive">
               
                   <span class="site-state-item-count">14</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
@@ -854,7 +928,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">类与对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AF%AD%E8%A8%80%E7%9A%84%E7%89%B9%E6%80%A7"><span class="nav-number">1.1.</span> <span class="nav-text">一、面向对象语言的特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%B1%BB"><span class="nav-number">1.2.</span> <span class="nav-text">二、类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E6%A6%82%E8%BF%B0"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E7%B1%BB%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、类的声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E7%B1%BB%E4%BD%93"><span class="nav-number">1.2.3.</span> <span class="nav-text">3、类体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F"><span class="nav-number">1.2.4.</span> <span class="nav-text">4、成员变量和局部变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.5.</span> <span class="nav-text">5、方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a%E3%80%81%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BDOverload"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">a、方法重载Overload</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b%E3%80%81%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">b、构造方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c%E3%80%81%E7%B1%BB%E6%96%B9%E6%B3%95%E5%92%8C%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.5.3.</span> <span class="nav-text">c、类方法和实例方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d%E3%80%81%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.5.4.</span> <span class="nav-text">d、常见问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.3.</span> <span class="nav-text">三、对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA"><span class="nav-number">1.3.1.</span> <span class="nav-text">1、对象创建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a%E3%80%81%E5%AF%B9%E8%B1%A1%E5%A3%B0%E6%98%8E"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">a、对象声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b%E3%80%81%E4%B8%BA%E5%A3%B0%E6%98%8E%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">b、为声明的对象分配内存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E4%BD%BF%E7%94%A8%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.3.2.</span> <span class="nav-text">2、使用对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a%E3%80%81%E5%AF%B9%E8%B1%A1%E6%93%8D%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8F%98%E9%87%8F%EF%BC%88%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%EF%BC%89"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">a、对象操作自己的变量（对象的属性）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b%E3%80%81%E5%AF%B9%E8%B1%A1%E8%B0%83%E7%94%A8%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%89"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">b、对象调用类中的方法（对象的功能）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BC%95%E7%94%A8%E5%92%8C%E5%AE%9E%E4%BD%93"><span class="nav-number">1.3.3.</span> <span class="nav-text">3、对象的引用和实体</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%8F%82%E6%95%B0%E4%BC%A0%E5%80%BC"><span class="nav-number">1.4.</span> <span class="nav-text">四、参数传值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0%E7%9A%84%E4%BC%A0%E5%80%BC"><span class="nav-number">1.4.1.</span> <span class="nav-text">1、基本数据类型参数的传值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0%E7%9A%84%E4%BC%A0%E5%80%BC"><span class="nav-number">1.4.2.</span> <span class="nav-text">2、引用类型参数的传值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0"><span class="nav-number">1.4.3.</span> <span class="nav-text">3、可变参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%84%E5%90%88"><span class="nav-number">1.5.</span> <span class="nav-text">五、对象的组合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81static%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.6.</span> <span class="nav-text">六、static关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E5%92%8C%E7%B1%BB%E5%8F%98%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.6.1.</span> <span class="nav-text">1、实例变量和类变量的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%E5%92%8C%E7%B1%BB%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.6.2.</span> <span class="nav-text">2、实例方法和类方法的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81this%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.7.</span> <span class="nav-text">七、this关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%9C%A8%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E4%B8%AD%E4%BD%BF%E7%94%A8this"><span class="nav-number">1.7.1.</span> <span class="nav-text">1、在构造方法中使用this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%9C%A8%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%E4%B8%AD%E4%BD%BF%E7%94%A8this"><span class="nav-number">1.7.2.</span> <span class="nav-text">2、在实例方法中使用this</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E5%8C%85"><span class="nav-number">1.8.</span> <span class="nav-text">八、包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E8%BF%90%E8%A1%8C%E5%B8%A6%E6%9C%89%E5%8C%85%E5%90%8D%E7%9A%84%E4%B8%BB%E7%B1%BB"><span class="nav-number">1.8.1.</span> <span class="nav-text">1、运行带有包名的主类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81import%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.9.</span> <span class="nav-text">九、import语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%BC%95%E5%85%A5%E7%B1%BB%E5%BA%93%E4%B8%AD%E7%9A%84%E7%B1%BB"><span class="nav-number">1.9.1.</span> <span class="nav-text">1、引入类库中的类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%BC%95%E5%85%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8C%85%E4%B8%AD%E7%9A%84%E7%B1%BB"><span class="nav-number">1.9.2.</span> <span class="nav-text">2、引入自定义包中的类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%BC%95%E5%85%A5%E6%97%A0%E5%8C%85%E5%90%8D%E7%B1%BB"><span class="nav-number">1.9.3.</span> <span class="nav-text">3、引入无包名类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E9%81%BF%E5%85%8D%E7%B1%BB%E5%90%8D%E6%B7%B7%E6%B7%86"><span class="nav-number">1.9.4.</span> <span class="nav-text">4、避免类名混淆</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a%E3%80%81%E5%8C%BA%E5%88%86%E6%97%A0%E5%8C%85%E5%90%8D%E5%92%8C%E6%9C%89%E5%8C%85%E5%90%8D%E7%9A%84%E7%B1%BB"><span class="nav-number">1.9.4.1.</span> <span class="nav-text">a、区分无包名和有包名的类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b%E3%80%81%E5%8C%BA%E5%88%86%E6%9C%89%E5%8C%85%E5%90%8D%E7%B1%BB"><span class="nav-number">1.9.4.2.</span> <span class="nav-text">b、区分有包名类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E3%80%81%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90"><span class="nav-number">1.10.</span> <span class="nav-text">十、访问权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81private%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F%E5%92%8C%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95"><span class="nav-number">1.10.1.</span> <span class="nav-text">1、private私有变量和私有方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81public%E5%85%AC%E6%9C%89%E5%8F%98%E9%87%8F%E5%92%8C%E5%85%B1%E6%9C%89%E6%96%B9%E6%B3%95"><span class="nav-number">1.10.2.</span> <span class="nav-text">2、public公有变量和共有方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%8F%8B%E5%A5%BD%E5%8F%98%E9%87%8F%E5%92%8C%E5%8F%8B%E5%A5%BD%E6%96%B9%E6%B3%95"><span class="nav-number">1.10.3.</span> <span class="nav-text">3、友好变量和友好方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81protected%E5%8F%97%E4%BF%9D%E6%8A%A4%E7%9A%84%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E6%96%B9%E6%B3%95"><span class="nav-number">1.10.4.</span> <span class="nav-text">4、protected受保护的成员变量和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81public%E7%B1%BB%E4%B8%8E%E5%8F%8B%E5%A5%BD%E7%B1%BB"><span class="nav-number">1.10.5.</span> <span class="nav-text">5、public类与友好类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%B1%BB%E5%B0%81%E8%A3%85"><span class="nav-number">1.11.</span> <span class="nav-text">十一、基本数据类型的类封装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E5%92%8C%E6%8B%86%E7%AE%B1"><span class="nav-number">1.11.1.</span> <span class="nav-text">1、自动装箱和拆箱</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E5%8F%8D%E7%BC%96%E8%AF%91%E5%92%8C%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90%E5%99%A8"><span class="nav-number">1.12.</span> <span class="nav-text">十二、反编译和文件生成器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E4%BD%BF%E7%94%A8%E5%8F%8D%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-number">1.12.1.</span> <span class="nav-text">1、使用反编译器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E4%BD%BF%E7%94%A8%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90%E5%99%A8"><span class="nav-number">1.12.2.</span> <span class="nav-text">2、使用文件生成器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%89%E3%80%81JAR%E6%96%87%E4%BB%B6"><span class="nav-number">1.13.</span> <span class="nav-text">十三、JAR文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E6%9C%89%E5%8C%85%E5%90%8D%E7%9A%84%E7%B1%BB"><span class="nav-number">1.13.1.</span> <span class="nav-text">1、有包名的类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E6%97%A0%E5%8C%85%E5%90%8D%E7%9A%84%E7%B1%BB"><span class="nav-number">1.13.2.</span> <span class="nav-text">2、无包名的类</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AF%AD%E8%A8%80%E7%9A%84%E7%89%B9%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">一、面向对象语言的特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">二、类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E6%A6%82%E8%BF%B0"><span class="nav-number">2.1.</span> <span class="nav-text">1、概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E7%B1%BB%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-number">2.2.</span> <span class="nav-text">2、类的声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E7%B1%BB%E4%BD%93"><span class="nav-number">2.3.</span> <span class="nav-text">3、类体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F"><span class="nav-number">2.4.</span> <span class="nav-text">4、成员变量和局部变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E6%96%B9%E6%B3%95"><span class="nav-number">2.5.</span> <span class="nav-text">5、方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a%E3%80%81%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BDOverload"><span class="nav-number">2.5.1.</span> <span class="nav-text">a、方法重载Overload</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b%E3%80%81%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-number">2.5.2.</span> <span class="nav-text">b、构造方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c%E3%80%81%E7%B1%BB%E6%96%B9%E6%B3%95%E5%92%8C%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95"><span class="nav-number">2.5.3.</span> <span class="nav-text">c、类方法和实例方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d%E3%80%81%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">2.5.4.</span> <span class="nav-text">d、常见问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.</span> <span class="nav-text">三、对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA"><span class="nav-number">3.1.</span> <span class="nav-text">1、对象创建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a%E3%80%81%E5%AF%B9%E8%B1%A1%E5%A3%B0%E6%98%8E"><span class="nav-number">3.1.1.</span> <span class="nav-text">a、对象声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b%E3%80%81%E4%B8%BA%E5%A3%B0%E6%98%8E%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98"><span class="nav-number">3.1.2.</span> <span class="nav-text">b、为声明的对象分配内存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E4%BD%BF%E7%94%A8%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.2.</span> <span class="nav-text">2、使用对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a%E3%80%81%E5%AF%B9%E8%B1%A1%E6%93%8D%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8F%98%E9%87%8F%EF%BC%88%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%EF%BC%89"><span class="nav-number">3.2.1.</span> <span class="nav-text">a、对象操作自己的变量（对象的属性）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b%E3%80%81%E5%AF%B9%E8%B1%A1%E8%B0%83%E7%94%A8%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%89"><span class="nav-number">3.2.2.</span> <span class="nav-text">b、对象调用类中的方法（对象的功能）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BC%95%E7%94%A8%E5%92%8C%E5%AE%9E%E4%BD%93"><span class="nav-number">3.3.</span> <span class="nav-text">3、对象的引用和实体</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%8F%82%E6%95%B0%E4%BC%A0%E5%80%BC"><span class="nav-number">4.</span> <span class="nav-text">四、参数传值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0%E7%9A%84%E4%BC%A0%E5%80%BC"><span class="nav-number">4.1.</span> <span class="nav-text">1、基本数据类型参数的传值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0%E7%9A%84%E4%BC%A0%E5%80%BC"><span class="nav-number">4.2.</span> <span class="nav-text">2、引用类型参数的传值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0"><span class="nav-number">4.3.</span> <span class="nav-text">3、可变参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%84%E5%90%88"><span class="nav-number">5.</span> <span class="nav-text">五、对象的组合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81static%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">6.</span> <span class="nav-text">六、static关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E5%92%8C%E7%B1%BB%E5%8F%98%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">6.1.</span> <span class="nav-text">1、实例变量和类变量的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%E5%92%8C%E7%B1%BB%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">6.2.</span> <span class="nav-text">2、实例方法和类方法的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81this%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">7.</span> <span class="nav-text">七、this关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%9C%A8%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E4%B8%AD%E4%BD%BF%E7%94%A8this"><span class="nav-number">7.1.</span> <span class="nav-text">1、在构造方法中使用this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%9C%A8%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%E4%B8%AD%E4%BD%BF%E7%94%A8this"><span class="nav-number">7.2.</span> <span class="nav-text">2、在实例方法中使用this</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E5%8C%85"><span class="nav-number">8.</span> <span class="nav-text">八、包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E8%BF%90%E8%A1%8C%E5%B8%A6%E6%9C%89%E5%8C%85%E5%90%8D%E7%9A%84%E4%B8%BB%E7%B1%BB"><span class="nav-number">8.1.</span> <span class="nav-text">1、运行带有包名的主类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81import%E8%AF%AD%E5%8F%A5"><span class="nav-number">9.</span> <span class="nav-text">九、import语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%BC%95%E5%85%A5%E7%B1%BB%E5%BA%93%E4%B8%AD%E7%9A%84%E7%B1%BB"><span class="nav-number">9.1.</span> <span class="nav-text">1、引入类库中的类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%BC%95%E5%85%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8C%85%E4%B8%AD%E7%9A%84%E7%B1%BB"><span class="nav-number">9.2.</span> <span class="nav-text">2、引入自定义包中的类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%BC%95%E5%85%A5%E6%97%A0%E5%8C%85%E5%90%8D%E7%B1%BB"><span class="nav-number">9.3.</span> <span class="nav-text">3、引入无包名类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E9%81%BF%E5%85%8D%E7%B1%BB%E5%90%8D%E6%B7%B7%E6%B7%86"><span class="nav-number">9.4.</span> <span class="nav-text">4、避免类名混淆</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a%E3%80%81%E5%8C%BA%E5%88%86%E6%97%A0%E5%8C%85%E5%90%8D%E5%92%8C%E6%9C%89%E5%8C%85%E5%90%8D%E7%9A%84%E7%B1%BB"><span class="nav-number">9.4.1.</span> <span class="nav-text">a、区分无包名和有包名的类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b%E3%80%81%E5%8C%BA%E5%88%86%E6%9C%89%E5%8C%85%E5%90%8D%E7%B1%BB"><span class="nav-number">9.4.2.</span> <span class="nav-text">b、区分有包名类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E3%80%81%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90"><span class="nav-number">10.</span> <span class="nav-text">十、访问权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81private%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F%E5%92%8C%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95"><span class="nav-number">10.1.</span> <span class="nav-text">1、private私有变量和私有方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81public%E5%85%AC%E6%9C%89%E5%8F%98%E9%87%8F%E5%92%8C%E5%85%B1%E6%9C%89%E6%96%B9%E6%B3%95"><span class="nav-number">10.2.</span> <span class="nav-text">2、public公有变量和共有方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%8F%8B%E5%A5%BD%E5%8F%98%E9%87%8F%E5%92%8C%E5%8F%8B%E5%A5%BD%E6%96%B9%E6%B3%95"><span class="nav-number">10.3.</span> <span class="nav-text">3、友好变量和友好方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81protected%E5%8F%97%E4%BF%9D%E6%8A%A4%E7%9A%84%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E6%96%B9%E6%B3%95"><span class="nav-number">10.4.</span> <span class="nav-text">4、protected受保护的成员变量和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81public%E7%B1%BB%E4%B8%8E%E5%8F%8B%E5%A5%BD%E7%B1%BB"><span class="nav-number">10.5.</span> <span class="nav-text">5、public类与友好类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%B1%BB%E5%B0%81%E8%A3%85"><span class="nav-number">11.</span> <span class="nav-text">十一、基本数据类型的类封装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E5%92%8C%E6%8B%86%E7%AE%B1"><span class="nav-number">11.1.</span> <span class="nav-text">1、自动装箱和拆箱</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E5%8F%8D%E7%BC%96%E8%AF%91%E5%92%8C%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90%E5%99%A8"><span class="nav-number">12.</span> <span class="nav-text">十二、反编译和文件生成器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E4%BD%BF%E7%94%A8%E5%8F%8D%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-number">12.1.</span> <span class="nav-text">1、使用反编译器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E4%BD%BF%E7%94%A8%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90%E5%99%A8"><span class="nav-number">12.2.</span> <span class="nav-text">2、使用文件生成器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%89%E3%80%81JAR%E6%96%87%E4%BB%B6"><span class="nav-number">13.</span> <span class="nav-text">十三、JAR文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E6%9C%89%E5%8C%85%E5%90%8D%E7%9A%84%E7%B1%BB"><span class="nav-number">13.1.</span> <span class="nav-text">1、有包名的类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E6%97%A0%E5%8C%85%E5%90%8D%E7%9A%84%E7%B1%BB"><span class="nav-number">13.2.</span> <span class="nav-text">2、无包名的类</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -884,20 +958,37 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
-  <span class="post-meta-divider">|</span>
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
-
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
@@ -1046,6 +1137,323 @@
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 
