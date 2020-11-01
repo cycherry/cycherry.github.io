@@ -790,6 +790,10 @@
       <categories>
         <category>JAVA</category>
       </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>UML</tag>
+      </tags>
   </entry>
   <entry>
     <title>多线程</title>
