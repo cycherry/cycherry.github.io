@@ -86,16 +86,16 @@
 <meta property="og:site_name" content="codelitchi&#39;s blog">
 <meta property="og:description" content="一、UML类图简介UML类图：是一个结构图，常用来描述一个系统的静态结构； UML图组成： 类的UML图、接口的UML图、泛化关系UML图、关联关系UML图、依赖关系UML图、实现关系UML图； 1、类的UML图 分为三层；     第一层类名，斜体表示抽象类，常规字体具体类；    第二层变量层——属性层，列出类的成员变量及类型，格式：变量名字：类型，+表示public、#表示protected">
 <meta property="og:locale">
-<meta property="og:image" content="http://www.codelitchi.com/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/.%5C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%5Cclass_UML.png">
-<meta property="og:image" content="http://www.codelitchi.com/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/.%5C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%5C2.png">
-<meta property="og:image" content="http://www.codelitchi.com/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/.%5C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%5C3.png">
+<meta property="og:image" content="http://www.codelitchi.com/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/class_UML.png">
+<meta property="og:image" content="http://www.codelitchi.com/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/2.png">
+<meta property="og:image" content="http://www.codelitchi.com/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/3.png">
 <meta property="article:published_time" content="2020-11-01T08:05:42.797Z">
-<meta property="article:modified_time" content="2020-11-01T16:38:15.097Z">
+<meta property="article:modified_time" content="2020-11-01T17:35:09.686Z">
 <meta property="article:author" content="codelitchi">
 <meta property="article:tag" content="JAVA">
 <meta property="article:tag" content="UML">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.codelitchi.com/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/.%5C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%5Cclass_UML.png">
+<meta name="twitter:image" content="http://www.codelitchi.com/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/class_UML.png">
 
 
 
@@ -413,16 +413,19 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> y;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> z;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>对应的类UML图：</p>
-<p><img src=".%5C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%5Cclass_UML.png" alt="class_UML"></p>
+<img src="/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/class_UML.png" class="">
+
 <h3 id="2、接口的UML图"><a href="#2、接口的UML图" class="headerlink" title="2、接口的UML图"></a>2、接口的UML图</h3><p>第一层：接口名字必须是斜体；且要用《interface》修饰名字，两行</p>
 <p>第二层：常量层用+修饰都是public</p>
 <p>第三层：+修饰因为都是public</p>
 <p>都应的UML图：</p>
-<p><img src=".%5C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%5C2.png"></p>
+<img src="/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/2.png" class="">
+
 <h3 id="3、泛化关系"><a href="#3、泛化关系" class="headerlink" title="3、泛化关系"></a>3、泛化关系</h3><p>所谓泛化关系就是：类的继承关系</p>
 <p>用一个带箭头的直线表示：起始位置是子类，箭头位置是父类</p>
 <p>UML图：</p>
-<p><img src=".%5C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%5C3.png" alt="3"></p>
+<img src="/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/3.png" class="">
+
 <p>🐖：箭头是空心箭头，实心线；</p>
 <h3 id="4、关联关系"><a href="#4、关联关系" class="headerlink" title="4、关联关系"></a>4、关联关系</h3><p>如果A类中的成员使用B类来声明的，A关联B，从A指向B</p>
 <p>和泛化关系区别是：箭头是实心的，线是实心</p>
