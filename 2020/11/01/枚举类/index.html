@@ -87,7 +87,7 @@
 <meta property="og:description" content="一、枚举类类的对象有限个，确定的； 定义一组常量，建议是用枚举类； 1、自定义枚举类12345678910111213141516171819202122232425262728293031323334353637public class enum_C1 &amp;#123;    public static void main(String[] args) &amp;#123;        Season sp">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-11-01T08:05:42.792Z">
-<meta property="article:modified_time" content="2020-11-01T13:55:14.016Z">
+<meta property="article:modified_time" content="2020-11-08T07:41:04.343Z">
 <meta property="article:author" content="codelitchi">
 <meta name="twitter:card" content="summary">
 
@@ -438,9 +438,7 @@
 
 
 
-<p>4、注解</p>
-<p>a、JDK内置的三个注解</p>
-<blockquote>
+<h3 id="4、注解"><a href="#4、注解" class="headerlink" title="4、注解"></a>4、注解</h3><h4 id="a、JDK内置的三个注解"><a href="#a、JDK内置的三个注解" class="headerlink" title="a、JDK内置的三个注解"></a>a、JDK内置的三个注解</h4><blockquote>
 <p>@override，方法重写注解，只能用于方法；</p>
 <p>会在编译时，校验该方法是否是重写；</p>
 </blockquote>
@@ -454,7 +452,54 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SuppressWarnings(&quot;unused&quot;)</span></span><br><span class="line"><span class="keyword">int</span> m=<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SuppressWarnings(&#123;&quot;unused&quot;,&quot;rawtypes&quot;&#125;)</span><span class="comment">//多个注解</span></span><br></pre></td></tr></table></figure>
 
 <p>此时就不会提示感叹号，危险；不写抑制编译器警告注解，会警告遍历没有被私用；</p>
-<p>b、自定义注解</p>
+<h4 id="b、自定义注解"><a href="#b、自定义注解" class="headerlink" title="b、自定义注解"></a>b、自定义注解</h4><p>注解声明：@interface</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>自定义注解，自动继承java.lang.annotation.Annotation</p>
+<p>内部定义成员：</p>
+<blockquote>
+<p>成员变量，参数类型，基本都可以</p>
+<p>成员默认值default指定</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation&#123;</span><br><span class="line">String[] value();</span><br><span class="line"><span class="comment">//String [] value() default &quot;hello&quot;;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>没有参数类型的，称为标记</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@override</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>具体见反射</strong></p>
+<h4 id="c、JDK元注解"><a href="#c、JDK元注解" class="headerlink" title="c、JDK元注解"></a>c、JDK元注解</h4><blockquote>
+<p>注解在注解上的注解</p>
+</blockquote>
+<p>Retention：声明注解的生命周期</p>
+<blockquote>
+<p>SOURCE/CLASS/RUNTIME</p>
+<p>只有RUNTIME修饰的注解才能通过反射获取</p>
+</blockquote>
+<p>Target：用于指定被修饰的注解Annotation能修饰哪些程序元素</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ElementType.ANNOTATION_TYPE 可以给一个注解进行注解</span><br><span class="line">ElementType.CONSTRUCTOR 可给构造方法进行注解</span><br><span class="line">ElementType.FIELD 可给属性进行注解</span><br><span class="line">ElementType.LOCAL_VARIABLE 可给局部变量进行注解</span><br><span class="line">ElementType.METHOD 可给方法进行注解</span><br><span class="line">ElementType.PACKAGE 可给一个包进行注解</span><br><span class="line">ElementType.PARAMETER 可给一个方法内的参数进行注解</span><br><span class="line">ElementType.TYPE 可给一个类型进行注解，比如类、接口、枚举</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Documented：被修饰的注解，在被javadoc解析时，保留下来</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation&#123;</span><br><span class="line">String[] value();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Inherited：被修饰的注解，具有继承性</p>
+<blockquote>
+<p>子类包含被修饰的注解</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation&#123;</span><br><span class="line">String[] value();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@MyAnnotation</span></span><br><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">A</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>B也具有@MyAnnotation注解</p>
+<p>d、JDK8注解新特性</p>
+<p>可重复注解</p>
+<p>1.8之前</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>类型注解</p>
 
       
     </div>
@@ -585,7 +630,7 @@
               
                 <a href="/archives/%7C%7Carchive">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -640,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB"><span class="nav-text">一、枚举类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9E%9A%E4%B8%BE%E7%B1%BB"><span class="nav-text">1、自定义枚举类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E4%BD%BF%E7%94%A8JDK5-0%E6%96%B0%E7%89%B9%E6%80%A7%EF%BC%8Cenum%E5%88%9B%E5%BB%BA%E6%9E%9A%E4%B8%BE%E7%B1%BB"><span class="nav-text">2、使用JDK5.0新特性，enum创建枚举类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a%E3%80%81%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9E%9A%E4%B8%BE%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">a、和自定义枚举类的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b%E3%80%81Enum%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">b、Enum类常用方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3"><span class="nav-text">3、枚举类实现接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a%E3%80%81%E5%9C%A8%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="nav-text">a、在枚举类中实现抽象方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b%E3%80%81%E5%9C%A8%E5%85%B7%E4%BD%93%E5%AF%B9%E8%B1%A1%E4%B8%8B%E5%AE%9E%E7%8E%B0%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="nav-text">b、在具体对象下实现抽象方法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB"><span class="nav-text">一、枚举类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9E%9A%E4%B8%BE%E7%B1%BB"><span class="nav-text">1、自定义枚举类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E4%BD%BF%E7%94%A8JDK5-0%E6%96%B0%E7%89%B9%E6%80%A7%EF%BC%8Cenum%E5%88%9B%E5%BB%BA%E6%9E%9A%E4%B8%BE%E7%B1%BB"><span class="nav-text">2、使用JDK5.0新特性，enum创建枚举类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a%E3%80%81%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9E%9A%E4%B8%BE%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">a、和自定义枚举类的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b%E3%80%81Enum%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">b、Enum类常用方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3"><span class="nav-text">3、枚举类实现接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a%E3%80%81%E5%9C%A8%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="nav-text">a、在枚举类中实现抽象方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b%E3%80%81%E5%9C%A8%E5%85%B7%E4%BD%93%E5%AF%B9%E8%B1%A1%E4%B8%8B%E5%AE%9E%E7%8E%B0%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="nav-text">b、在具体对象下实现抽象方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E6%B3%A8%E8%A7%A3"><span class="nav-text">4、注解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a%E3%80%81JDK%E5%86%85%E7%BD%AE%E7%9A%84%E4%B8%89%E4%B8%AA%E6%B3%A8%E8%A7%A3"><span class="nav-text">a、JDK内置的三个注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3"><span class="nav-text">b、自定义注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c%E3%80%81JDK%E5%85%83%E6%B3%A8%E8%A7%A3"><span class="nav-text">c、JDK元注解</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

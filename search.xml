@@ -71,8 +71,7 @@
 <p>高–&gt;低：显式类型转换</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">格式：（类型名）要转换的值；</span><br><span class="line"><span class="keyword">int</span> x=(<span class="keyword">int</span>)<span class="number">34.56</span>;</span><br></pre></td></tr></table></figure>
 
-
-
+<p>🐖：<strong>转换的时候，类型必须用括号括起来</strong></p>
 <h2 id="三、JAVA输入输出"><a href="#三、JAVA输入输出" class="headerlink" title="三、JAVA输入输出"></a>三、JAVA输入输出</h2><h3 id="1、输入"><a href="#1、输入" class="headerlink" title="1、输入"></a>1、输入</h3><h4 id="a、整型、逻辑类型、浮点型："><a href="#a、整型、逻辑类型、浮点型：" class="headerlink" title="a、整型、逻辑类型、浮点型："></a><strong>a、整型、逻辑类型、浮点型：</strong></h4><p>使用Scanner类创建对象，使用对象调用方法：</p>
 <p>nextInt()、nextLong()、nextShort()、nextBoolean()、nextByte()、nextFloat()、nextDouble()</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">day08_3</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;正负数判断，请输入一个数：&quot;</span>);</span><br><span class="line">		Scanner reader = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">int</span> i=reader.nextInt();</span><br><span class="line">		<span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>)</span><br><span class="line">			System.out.println(<span class="string">&quot;偶数！！！&quot;</span>);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			System.out.println(<span class="string">&quot;奇数！！！&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -483,6 +482,95 @@
       </categories>
   </entry>
   <entry>
+    <title></title>
+    <url>/2020/11/11/%E5%8F%8D%E5%B0%84/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: 反射</span><br><span class="line">type: categories</span><br><span class="line">categories: </span><br><span class="line">- JAVA</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><blockquote>
+<p>将类的各个组成部分封装为其他对象</p>
+</blockquote>
+<h3 id="1、反射特点"><a href="#1、反射特点" class="headerlink" title="1、反射特点"></a>1、反射特点</h3><blockquote>
+<p>可以在程序运行过程中，操作这些对象</p>
+<p>可以解耦，提高程序的可扩展性</p>
+</blockquote>
+<h3 id="2、获取class对象的方式"><a href="#2、获取class对象的方式" class="headerlink" title="2、获取class对象的方式"></a>2、获取class对象的方式</h3><blockquote>
+<p>a、Class.forName(”全类名“);//将字节码文件加载进内存，返回class对象</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Class cla=Class.forName(<span class="string">&quot;Demo_3.Reflect&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>🐖：全类名就是，包名.类名</p>
+<blockquote>
+<p>b、类名.class:通过类名的属性获取</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Class cla1=Reflect.class;</span><br><span class="line">System.out.println(cla1);</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>c、对象.getclass()</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Reflect re=<span class="keyword">new</span> Reflect();</span><br><span class="line">Class cla2=re.getClass();</span><br><span class="line">System.out.println(cla2);</span><br></pre></td></tr></table></figure>
+
+<p>结论：同一个字节码文件再一次程序运行中，在被加载进入内存，只加载一次；不论是哪一种加载方式，都是同一个；</p>
+<h3 id="3、class对象功能"><a href="#3、class对象功能" class="headerlink" title="3、class对象功能"></a>3、class对象功能</h3><h4 id="a、获取成员变量"><a href="#a、获取成员变量" class="headerlink" title="a、获取成员变量"></a>a、获取成员变量</h4><pre><code>    Field[] getFields()    //获取所有public修饰的成员变量
+
+    Field getField(String name)  //获取指定的public修饰的成员变量方法</code></pre>
+<p>​        Ⅰ获取Feild对象操作</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">*<span class="function">Object <span class="title">get</span><span class="params">(Object obj)</span>  获取值</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">*<span class="keyword">void</span> <span class="title">set</span><span class="params">(Object obj, Object value)</span>  设置值</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">*<span class="title">setAccessible</span><span class="params">()</span>   设置是<span class="keyword">true</span>或者<span class="keyword">false</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<pre><code>    Field getDeclaredField(String name)  //获取所有的成员变量
+
+    Field[] getDeclaredFields()  //获取指定值的成员变量，包括private和public</code></pre>
+<h4 id="b、获取构造方法"><a href="#b、获取构造方法" class="headerlink" title="b、获取构造方法"></a>b、获取构造方法</h4><pre><code>    Constructor&lt;?&gt;[] getConstructors()  
+
+    Constructor&lt;T&gt; getConstructor(类&lt;?&gt;... parameterTypes)  </code></pre>
+<p>​        Ⅰ获取构造方法对象</p>
+<p>​                    newInstance()常见对象</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Class clazz=Reflect.class;</span><br><span class="line">Constructor cons=clazz.getDeclaredConstructor(String.class,<span class="keyword">int</span>.class);</span><br><span class="line">Object obj=(Reflect)cons.newInstance(<span class="string">&quot;张三&quot;</span>,<span class="number">24</span>);</span><br><span class="line">System.out.println(obj);</span><br></pre></td></tr></table></figure>
+
+<p>🐖：不传参数，默认使用的是无参构造器：clazz.newInstance()</p>
+<pre><code>    Constructor&lt;T&gt; getDeclaredConstructor(类&lt;?&gt;... parameterTypes)  
+
+    Constructor&lt;?&gt;[] getDeclaredConstructors()  </code></pre>
+<h4 id="c、获取成员方法"><a href="#c、获取成员方法" class="headerlink" title="c、获取成员方法"></a>c、获取成员方法</h4><pre><code>    Method getMethod(String name, 类&lt;?&gt;... parameterTypes)  
+
+    Method[] getMethods()  </code></pre>
+<p>​        Ⅰ获取方法对象</p>
+<p>​            执行方法：Object invoke(Object obj, Object… args)  </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Class clazz=Reflect.class;</span><br><span class="line">Reflect re=<span class="keyword">new</span> Reflect();</span><br><span class="line">Method m1=clazz.getMethod(<span class="string">&quot;eat&quot;</span>);<span class="comment">//无参方法</span></span><br><span class="line">Method m2=clazz.getMethod(<span class="string">&quot;eat&quot;</span>,String.class);<span class="comment">//含有参数的方法</span></span><br><span class="line">m1.invoke(re);</span><br><span class="line">m2.invoke(re,<span class="string">&quot;荔枝&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>​        Ⅱ获取方法名</p>
+<p>​            String getName()  </p>
+<pre><code>    Method getDeclaredMethod(String name, 类&lt;?&gt;... parameterTypes)  
+
+    Method[] getDeclaredMethods()  </code></pre>
+<h4 id="d、获取类名"><a href="#d、获取类名" class="headerlink" title="d、获取类名"></a>d、获取类名</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">String getName()  </span><br></pre></td></tr></table></figure>
+
+
+
+<p>补充：获取私有成员变量和方法时，需要暴力反射</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Field te=test.getDeclaredField(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">te.setAccessible(<span class="keyword">true</span>);<span class="comment">//暴力反射</span></span><br><span class="line">te.set(re,<span class="string">&quot;tom&quot;</span>);</span><br><span class="line">System.out.println(te.get(re));</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="4、反射案例"><a href="#4、反射案例" class="headerlink" title="4、反射案例"></a>4、反射案例</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> ReflectTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReflectDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        <span class="comment">//1、创建properties对象</span></span><br><span class="line">        Properties pro=<span class="keyword">new</span> Properties();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//2、获取类加载器,用来加载配置文件</span></span><br><span class="line">        ClassLoader classLoader = ReflectDemo.class.getClassLoader();</span><br><span class="line">        InputStream is = classLoader.getResourceAsStream(<span class="string">&quot;pro.properties&quot;</span>);<span class="comment">//返回字节路径字节流</span></span><br><span class="line">        pro.load(is);<span class="comment">//完成加载</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//3、获取配置文件中的配置数据</span></span><br><span class="line">        <span class="comment">//String getProperty(String key)  键值搜索</span></span><br><span class="line">        String className = pro.getProperty(<span class="string">&quot;className&quot;</span>);</span><br><span class="line">        String methodName = pro.getProperty(<span class="string">&quot;methodName&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//4、加载该类进内存，并执行；三种放法任选一种</span></span><br><span class="line">        Class cls=Class.forName(className);</span><br><span class="line">        Object obj = cls.newInstance();<span class="comment">//创建对象</span></span><br><span class="line">        Method method = cls.getMethod(methodName);</span><br><span class="line">        method.invoke(obj);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>配置文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">className&#x3D;ReflectTest.ReflectDemo2</span><br><span class="line">methodName&#x3D;sleep</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
     <title>枚举类与注解</title>
     <url>/2020/11/01/%E6%9E%9A%E4%B8%BE%E7%B1%BB/</url>
     <content><![CDATA[<h2 id="一、枚举类"><a href="#一、枚举类" class="headerlink" title="一、枚举类"></a>一、枚举类</h2><p>类的对象有限个，确定的；</p>
@@ -528,9 +616,7 @@
 
 
 
-<p>4、注解</p>
-<p>a、JDK内置的三个注解</p>
-<blockquote>
+<h3 id="4、注解"><a href="#4、注解" class="headerlink" title="4、注解"></a>4、注解</h3><h4 id="a、JDK内置的三个注解"><a href="#a、JDK内置的三个注解" class="headerlink" title="a、JDK内置的三个注解"></a>a、JDK内置的三个注解</h4><blockquote>
 <p>@override，方法重写注解，只能用于方法；</p>
 <p>会在编译时，校验该方法是否是重写；</p>
 </blockquote>
@@ -544,7 +630,54 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SuppressWarnings(&quot;unused&quot;)</span></span><br><span class="line"><span class="keyword">int</span> m=<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SuppressWarnings(&#123;&quot;unused&quot;,&quot;rawtypes&quot;&#125;)</span><span class="comment">//多个注解</span></span><br></pre></td></tr></table></figure>
 
 <p>此时就不会提示感叹号，危险；不写抑制编译器警告注解，会警告遍历没有被私用；</p>
-<p>b、自定义注解</p>
+<h4 id="b、自定义注解"><a href="#b、自定义注解" class="headerlink" title="b、自定义注解"></a>b、自定义注解</h4><p>注解声明：@interface</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>自定义注解，自动继承java.lang.annotation.Annotation</p>
+<p>内部定义成员：</p>
+<blockquote>
+<p>成员变量，参数类型，基本都可以</p>
+<p>成员默认值default指定</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation&#123;</span><br><span class="line">String[] value();</span><br><span class="line"><span class="comment">//String [] value() default &quot;hello&quot;;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>没有参数类型的，称为标记</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@override</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>具体见反射</strong></p>
+<h4 id="c、JDK元注解"><a href="#c、JDK元注解" class="headerlink" title="c、JDK元注解"></a>c、JDK元注解</h4><blockquote>
+<p>注解在注解上的注解</p>
+</blockquote>
+<p>Retention：声明注解的生命周期</p>
+<blockquote>
+<p>SOURCE/CLASS/RUNTIME</p>
+<p>只有RUNTIME修饰的注解才能通过反射获取</p>
+</blockquote>
+<p>Target：用于指定被修饰的注解Annotation能修饰哪些程序元素</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ElementType.ANNOTATION_TYPE 可以给一个注解进行注解</span><br><span class="line">ElementType.CONSTRUCTOR 可给构造方法进行注解</span><br><span class="line">ElementType.FIELD 可给属性进行注解</span><br><span class="line">ElementType.LOCAL_VARIABLE 可给局部变量进行注解</span><br><span class="line">ElementType.METHOD 可给方法进行注解</span><br><span class="line">ElementType.PACKAGE 可给一个包进行注解</span><br><span class="line">ElementType.PARAMETER 可给一个方法内的参数进行注解</span><br><span class="line">ElementType.TYPE 可给一个类型进行注解，比如类、接口、枚举</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Documented：被修饰的注解，在被javadoc解析时，保留下来</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation&#123;</span><br><span class="line">String[] value();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Inherited：被修饰的注解，具有继承性</p>
+<blockquote>
+<p>子类包含被修饰的注解</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation&#123;</span><br><span class="line">String[] value();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@MyAnnotation</span></span><br><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">A</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>B也具有@MyAnnotation注解</p>
+<p>d、JDK8注解新特性</p>
+<p>可重复注解</p>
+<p>1.8之前</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>类型注解</p>
 ]]></content>
       <categories>
         <category>JAVA</category>

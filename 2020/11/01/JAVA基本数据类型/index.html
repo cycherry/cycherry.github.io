@@ -87,7 +87,7 @@
 <meta property="og:description" content="一、JAVA标识符1、标识符，由字母、数字、下划线、美元符号，长度不受限制； 2、第一个字符不能是数字； 3、标识符不能是关键字； 4、标识符不能是true、false、null； 🐖：标识符字母区分大小写 二、JAVA基本数据类型逻辑类型：boolean 整型类型：byte、short、int、long               byte范围：-127128；short范围：-2^152^1">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-11-01T08:05:42.782Z">
-<meta property="article:modified_time" content="2020-11-01T13:51:34.855Z">
+<meta property="article:modified_time" content="2020-11-02T11:24:37.197Z">
 <meta property="article:author" content="codelitchi">
 <meta name="twitter:card" content="summary">
 
@@ -419,8 +419,7 @@
 <p>高–&gt;低：显式类型转换</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">格式：（类型名）要转换的值；</span><br><span class="line"><span class="keyword">int</span> x=(<span class="keyword">int</span>)<span class="number">34.56</span>;</span><br></pre></td></tr></table></figure>
 
-
-
+<p>🐖：<strong>转换的时候，类型必须用括号括起来</strong></p>
 <h2 id="三、JAVA输入输出"><a href="#三、JAVA输入输出" class="headerlink" title="三、JAVA输入输出"></a>三、JAVA输入输出</h2><h3 id="1、输入"><a href="#1、输入" class="headerlink" title="1、输入"></a>1、输入</h3><h4 id="a、整型、逻辑类型、浮点型："><a href="#a、整型、逻辑类型、浮点型：" class="headerlink" title="a、整型、逻辑类型、浮点型："></a><strong>a、整型、逻辑类型、浮点型：</strong></h4><p>使用Scanner类创建对象，使用对象调用方法：</p>
 <p>nextInt()、nextLong()、nextShort()、nextBoolean()、nextByte()、nextFloat()、nextDouble()</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">day08_3</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;正负数判断，请输入一个数：&quot;</span>);</span><br><span class="line">		Scanner reader = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">int</span> i=reader.nextInt();</span><br><span class="line">		<span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>)</span><br><span class="line">			System.out.println(<span class="string">&quot;偶数！！！&quot;</span>);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			System.out.println(<span class="string">&quot;奇数！！！&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -662,7 +661,7 @@
               
                 <a href="/archives/%7C%7Carchive">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
