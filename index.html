@@ -288,7 +288,7 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -312,7 +312,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/11/11/%E5%8F%8D%E5%B0%84/" itemprop="url">未命名</a></h2>
+                <a class="post-title-link" href="/2020/11/11/%E5%8F%8D%E5%B0%84/" itemprop="url">反射</a></h2>
         
 
         <div class="post-meta">
@@ -334,6 +334,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -374,11 +396,7 @@
       
         
           
-          1234title: 反射type: categoriescategories: - JAVA
-
-
-
-反射
+          反射
 将类的各个组成部分封装为其他对象
 
 1、反射特点
@@ -386,7 +404,9 @@
 可以解耦，提高程序的可扩展性
 
 2、获取class对象的方式
-a、Class.forName(”全类名“)
+a、Class.forName(”全类名“);//将字节码文件加载进内存，返回class对象
+
+1Class cla=Class.forName(
           ...
           <!--noindex-->
           <div class="post-button text-center">

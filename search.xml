@@ -45,6 +45,60 @@
       </tags>
   </entry>
   <entry>
+    <title>单例模式</title>
+    <url>/2020/11/01/JAVA%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h2 id="一、单例模式"><a href="#一、单例模式" class="headerlink" title="一、单例模式"></a>一、单例模式</h2><p>1、定义</p>
+<p>单例模式：确保一个类只有一个实例，并且提供一个全局访问点；</p>
+<p>2、单例模式特点：</p>
+<p>只有一个实例；</p>
+<p>自我实例化；</p>
+<p>提供全局访问点；</p>
+<p>3、单例模式优缺点</p>
+<p><strong>优点</strong>：由于单例模式只生成了一个实例，所以能够节约系统资源，减少性能开销，提高系统效率，同时也能够严格控制客户对它的访问。</p>
+<p><strong>缺点</strong>：也正是因为系统中只有一个实例，这样就导致了单例类的职责过重，违背了“单一职责原则”，同时也没有抽象类，这样扩展起来有一定的困难。</p>
+<p>4、单例模式 五种实现方式</p>
+<p>a、饿汉式</p>
+<blockquote>
+<p>线程安全，调用效率高。但是不能延时加载</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> day4;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Single_2</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Single_2 instance=<span class="keyword">new</span> Single_2(); <span class="comment">//1、内部创建实例</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Single_2</span><span class="params">()</span></span>&#123;                   <span class="comment">//2、构造器私有化——外部不能创建对象</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single_1 <span class="title">getInstance</span><span class="params">()</span></span>&#123;  <span class="comment">//3、公有静态方法，返回实例对象</span></span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>b、懒汉式</p>
+<blockquote>
+<p>线程不安全</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Single_1</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Single_1 instance=<span class="keyword">null</span>; <span class="comment">//1、内部创建实例</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Single_1</span><span class="params">()</span></span>&#123;                   <span class="comment">//2、构造器私有化——外部不能创建对象</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single_1 <span class="title">getInstance</span><span class="params">()</span></span>&#123; <span class="comment">//3、共有静态方法，返回实例对象</span></span><br><span class="line">        <span class="keyword">if</span>(instance==<span class="keyword">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            instance=<span class="keyword">new</span> Single_1();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>c、双重检查加锁（懒汉式）</p>
+<blockquote>
+<p>线程安全；</p>
+<p>同步代码块实现，线程安全</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Single_3</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Single_3 instance_3=<span class="keyword">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Single_3</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single_3 <span class="title">getInstance_3</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(instance_3==<span class="keyword">null</span>)<span class="comment">//第一重检查</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (Single_3.class) &#123;<span class="comment">//加锁</span></span><br><span class="line">                <span class="keyword">if</span> (instance_3 == <span class="keyword">null</span>) &#123;<span class="comment">//第二重检查</span></span><br><span class="line">                    instance_3 = <span class="keyword">new</span> Single_3();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance_3;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>d、静态内部类</p>
+<blockquote>
+<p>实现单例模式</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Single_4</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Sin</span> </span>&#123;                  <span class="comment">//静态内部类</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> Single_4 instance_4 = <span class="keyword">new</span> Single_4();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Single_4</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single_4 <span class="title">getInstance_4</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Sin.instance_4;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>5、枚举类实现单例模式</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">	uniqueInstance;<span class="comment">// 定义一个枚举的元素，它 就代表了Singleton的一个实例</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">singletonOperation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 功能处理 </span></span><br><span class="line">	</span><br><span class="line">        System.err.println(<span class="string">&quot;功能处理&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+  </entry>
+  <entry>
     <title>JAVA基础数据类型</title>
     <url>/2020/11/01/JAVA%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<h2 id="一、JAVA标识符"><a href="#一、JAVA标识符" class="headerlink" title="一、JAVA标识符"></a>一、JAVA标识符</h2><p>1、标识符，由字母、数字、下划线、美元符号，<strong>长度不受限制</strong>；</p>
@@ -183,60 +237,6 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">array</span> </span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Season</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	spring,summer,autumn,winter</span><br><span class="line">&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Season x=Season.spring;<span class="comment">//获取enum中的对象</span></span><br><span class="line">		System.out.println(x);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>🐖：联合编译时。只需要把enum放在其他文件声明为public，系统会自动编译其需要的文件</p>
-]]></content>
-      <categories>
-        <category>JAVA</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>单例模式</title>
-    <url>/2020/11/01/JAVA%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h2 id="一、单例模式"><a href="#一、单例模式" class="headerlink" title="一、单例模式"></a>一、单例模式</h2><p>1、定义</p>
-<p>单例模式：确保一个类只有一个实例，并且提供一个全局访问点；</p>
-<p>2、单例模式特点：</p>
-<p>只有一个实例；</p>
-<p>自我实例化；</p>
-<p>提供全局访问点；</p>
-<p>3、单例模式优缺点</p>
-<p><strong>优点</strong>：由于单例模式只生成了一个实例，所以能够节约系统资源，减少性能开销，提高系统效率，同时也能够严格控制客户对它的访问。</p>
-<p><strong>缺点</strong>：也正是因为系统中只有一个实例，这样就导致了单例类的职责过重，违背了“单一职责原则”，同时也没有抽象类，这样扩展起来有一定的困难。</p>
-<p>4、单例模式 五种实现方式</p>
-<p>a、饿汉式</p>
-<blockquote>
-<p>线程安全，调用效率高。但是不能延时加载</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> day4;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Single_2</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Single_2 instance=<span class="keyword">new</span> Single_2(); <span class="comment">//1、内部创建实例</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Single_2</span><span class="params">()</span></span>&#123;                   <span class="comment">//2、构造器私有化——外部不能创建对象</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single_1 <span class="title">getInstance</span><span class="params">()</span></span>&#123;  <span class="comment">//3、公有静态方法，返回实例对象</span></span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>b、懒汉式</p>
-<blockquote>
-<p>线程不安全</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Single_1</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Single_1 instance=<span class="keyword">null</span>; <span class="comment">//1、内部创建实例</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Single_1</span><span class="params">()</span></span>&#123;                   <span class="comment">//2、构造器私有化——外部不能创建对象</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single_1 <span class="title">getInstance</span><span class="params">()</span></span>&#123; <span class="comment">//3、共有静态方法，返回实例对象</span></span><br><span class="line">        <span class="keyword">if</span>(instance==<span class="keyword">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            instance=<span class="keyword">new</span> Single_1();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>c、双重检查加锁（懒汉式）</p>
-<blockquote>
-<p>线程安全；</p>
-<p>同步代码块实现，线程安全</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Single_3</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Single_3 instance_3=<span class="keyword">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Single_3</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single_3 <span class="title">getInstance_3</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(instance_3==<span class="keyword">null</span>)<span class="comment">//第一重检查</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (Single_3.class) &#123;<span class="comment">//加锁</span></span><br><span class="line">                <span class="keyword">if</span> (instance_3 == <span class="keyword">null</span>) &#123;<span class="comment">//第二重检查</span></span><br><span class="line">                    instance_3 = <span class="keyword">new</span> Single_3();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance_3;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>d、静态内部类</p>
-<blockquote>
-<p>实现单例模式</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Single_4</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Sin</span> </span>&#123;                  <span class="comment">//静态内部类</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> Single_4 instance_4 = <span class="keyword">new</span> Single_4();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Single_4</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single_4 <span class="title">getInstance_4</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Sin.instance_4;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>5、枚举类实现单例模式</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">	uniqueInstance;<span class="comment">// 定义一个枚举的元素，它 就代表了Singleton的一个实例</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">singletonOperation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 功能处理 </span></span><br><span class="line">	</span><br><span class="line">        System.err.println(<span class="string">&quot;功能处理&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>JAVA</category>
@@ -482,13 +482,9 @@
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>反射</title>
     <url>/2020/11/11/%E5%8F%8D%E5%B0%84/</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: 反射</span><br><span class="line">type: categories</span><br><span class="line">categories: </span><br><span class="line">- JAVA</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><blockquote>
+    <content><![CDATA[<h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><blockquote>
 <p>将类的各个组成部分封装为其他对象</p>
 </blockquote>
 <h3 id="1、反射特点"><a href="#1、反射特点" class="headerlink" title="1、反射特点"></a>1、反射特点</h3><blockquote>
@@ -569,6 +565,9 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">className&#x3D;ReflectTest.ReflectDemo2</span><br><span class="line">methodName&#x3D;sleep</span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
   </entry>
   <entry>
     <title>枚举类与注解</title>
@@ -682,6 +681,68 @@
       <categories>
         <category>JAVA</category>
       </categories>
+  </entry>
+  <entry>
+    <title>面向对象设计基本原则</title>
+    <url>/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/</url>
+    <content><![CDATA[<h2 id="一、UML类图简介"><a href="#一、UML类图简介" class="headerlink" title="一、UML类图简介"></a>一、UML类图简介</h2><p>UML类图：是一个结构图，常用来描述一个系统的静态结构；</p>
+<p>UML图组成：</p>
+<p>类的UML图、接口的UML图、泛化关系UML图、关联关系UML图、依赖关系UML图、实现关系UML图；</p>
+<h3 id="1、类的UML图"><a href="#1、类的UML图" class="headerlink" title="1、类的UML图"></a>1、类的UML图</h3><blockquote>
+<p>分为三层；</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>第一层类名，斜体表示抽象类，常规字体具体类；</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第二层变量层——属性层，列出类的成员变量及类型，格式：变量名字：类型，+表示public、#表示protected、-表示private，不加表示友好</td>
+</tr>
+<tr>
+<td>第三层方法层，格式：方法名（形参泪飙）：类型，权限表示和变量层一样，<strong>特别的，方法是静态方法，在方法下面添加下划线</strong></td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> y;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> z;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对应的类UML图：</p>
+<img src="/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/class_UML.png" class="">
+
+<h3 id="2、接口的UML图"><a href="#2、接口的UML图" class="headerlink" title="2、接口的UML图"></a>2、接口的UML图</h3><p>第一层：接口名字必须是斜体；且要用《interface》修饰名字，两行</p>
+<p>第二层：常量层用+修饰都是public</p>
+<p>第三层：+修饰因为都是public</p>
+<p>都应的UML图：</p>
+<img src="/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/2.png" class="">
+
+<h3 id="3、泛化关系"><a href="#3、泛化关系" class="headerlink" title="3、泛化关系"></a>3、泛化关系</h3><p>所谓泛化关系就是：类的继承关系</p>
+<p>用一个带箭头的直线表示：起始位置是子类，箭头位置是父类</p>
+<p>UML图：</p>
+<img src="/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/3.png" class="">
+
+<p>🐖：箭头是空心箭头，实心线；</p>
+<h3 id="4、关联关系"><a href="#4、关联关系" class="headerlink" title="4、关联关系"></a>4、关联关系</h3><p>如果A类中的成员使用B类来声明的，A关联B，从A指向B</p>
+<p>和泛化关系区别是：箭头是实心的，线是实心</p>
+<h3 id="5、依赖关系"><a href="#5、依赖关系" class="headerlink" title="5、依赖关系"></a>5、依赖关系</h3><p>A类中，某个方法的参数使用B类声明的变量或者某个方法返回的数据类型是B类型的；</p>
+<p>称为A依赖B，A指向B，系一条实心箭头，虚线</p>
+<h3 id="6、实现关系"><a href="#6、实现关系" class="headerlink" title="6、实现关系"></a>6、实现关系</h3><p>实现关系：一个类实现某个接口</p>
+<p>表示：虚线+空心箭头，虚线起始段是类，终点是接口；</p>
+<h3 id="7、注释"><a href="#7、注释" class="headerlink" title="7、注释"></a>7、注释</h3><p>虚线连接注释实体</p>
+<h2 id="二、面向对象原则"><a href="#二、面向对象原则" class="headerlink" title="二、面向对象原则"></a>二、面向对象原则</h2><h3 id="1、抽象类和接口"><a href="#1、抽象类和接口" class="headerlink" title="1、抽象类和接口"></a>1、抽象类和接口</h3><h4 id="a、抽象类"><a href="#a、抽象类" class="headerlink" title="a、抽象类"></a>a、抽象类</h4><p>抽象类可以有abstract方法，也可以有非abstract方法；</p>
+<p>抽象类不能使用new创建对象；</p>
+<p>如果一个非抽象类是某个抽象类的子类，必须重写父类抽象方法；</p>
+<p><strong>做上转型对象；</strong></p>
+<h4 id="b、接口"><a href="#b、接口" class="headerlink" title="b、接口"></a>b、接口</h4><p>接口可以有public权限的abstract方法，不能有非abstract方法；</p>
+<p>一个类去实现一个接口，必须重写接口所有方法；</p>
+<p><strong>接口回调；</strong></p>
+]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>UML</tag>
+      </tags>
   </entry>
   <entry>
     <title>运算符-表达式-语句</title>
@@ -866,68 +927,6 @@
       <categories>
         <category>JAVA</category>
       </categories>
-  </entry>
-  <entry>
-    <title>面向对象设计基本原则</title>
-    <url>/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/</url>
-    <content><![CDATA[<h2 id="一、UML类图简介"><a href="#一、UML类图简介" class="headerlink" title="一、UML类图简介"></a>一、UML类图简介</h2><p>UML类图：是一个结构图，常用来描述一个系统的静态结构；</p>
-<p>UML图组成：</p>
-<p>类的UML图、接口的UML图、泛化关系UML图、关联关系UML图、依赖关系UML图、实现关系UML图；</p>
-<h3 id="1、类的UML图"><a href="#1、类的UML图" class="headerlink" title="1、类的UML图"></a>1、类的UML图</h3><blockquote>
-<p>分为三层；</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>第一层类名，斜体表示抽象类，常规字体具体类；</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>第二层变量层——属性层，列出类的成员变量及类型，格式：变量名字：类型，+表示public、#表示protected、-表示private，不加表示友好</td>
-</tr>
-<tr>
-<td>第三层方法层，格式：方法名（形参泪飙）：类型，权限表示和变量层一样，<strong>特别的，方法是静态方法，在方法下面添加下划线</strong></td>
-</tr>
-</tbody></table>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> y;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> z;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>对应的类UML图：</p>
-<img src="/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/class_UML.png" class="">
-
-<h3 id="2、接口的UML图"><a href="#2、接口的UML图" class="headerlink" title="2、接口的UML图"></a>2、接口的UML图</h3><p>第一层：接口名字必须是斜体；且要用《interface》修饰名字，两行</p>
-<p>第二层：常量层用+修饰都是public</p>
-<p>第三层：+修饰因为都是public</p>
-<p>都应的UML图：</p>
-<img src="/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/2.png" class="">
-
-<h3 id="3、泛化关系"><a href="#3、泛化关系" class="headerlink" title="3、泛化关系"></a>3、泛化关系</h3><p>所谓泛化关系就是：类的继承关系</p>
-<p>用一个带箭头的直线表示：起始位置是子类，箭头位置是父类</p>
-<p>UML图：</p>
-<img src="/2020/11/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/3.png" class="">
-
-<p>🐖：箭头是空心箭头，实心线；</p>
-<h3 id="4、关联关系"><a href="#4、关联关系" class="headerlink" title="4、关联关系"></a>4、关联关系</h3><p>如果A类中的成员使用B类来声明的，A关联B，从A指向B</p>
-<p>和泛化关系区别是：箭头是实心的，线是实心</p>
-<h3 id="5、依赖关系"><a href="#5、依赖关系" class="headerlink" title="5、依赖关系"></a>5、依赖关系</h3><p>A类中，某个方法的参数使用B类声明的变量或者某个方法返回的数据类型是B类型的；</p>
-<p>称为A依赖B，A指向B，系一条实心箭头，虚线</p>
-<h3 id="6、实现关系"><a href="#6、实现关系" class="headerlink" title="6、实现关系"></a>6、实现关系</h3><p>实现关系：一个类实现某个接口</p>
-<p>表示：虚线+空心箭头，虚线起始段是类，终点是接口；</p>
-<h3 id="7、注释"><a href="#7、注释" class="headerlink" title="7、注释"></a>7、注释</h3><p>虚线连接注释实体</p>
-<h2 id="二、面向对象原则"><a href="#二、面向对象原则" class="headerlink" title="二、面向对象原则"></a>二、面向对象原则</h2><h3 id="1、抽象类和接口"><a href="#1、抽象类和接口" class="headerlink" title="1、抽象类和接口"></a>1、抽象类和接口</h3><h4 id="a、抽象类"><a href="#a、抽象类" class="headerlink" title="a、抽象类"></a>a、抽象类</h4><p>抽象类可以有abstract方法，也可以有非abstract方法；</p>
-<p>抽象类不能使用new创建对象；</p>
-<p>如果一个非抽象类是某个抽象类的子类，必须重写父类抽象方法；</p>
-<p><strong>做上转型对象；</strong></p>
-<h4 id="b、接口"><a href="#b、接口" class="headerlink" title="b、接口"></a>b、接口</h4><p>接口可以有public权限的abstract方法，不能有非abstract方法；</p>
-<p>一个类去实现一个接口，必须重写接口所有方法；</p>
-<p><strong>接口回调；</strong></p>
-]]></content>
-      <categories>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-        <tag>UML</tag>
-      </tags>
   </entry>
   <entry>
     <title>多线程</title>
